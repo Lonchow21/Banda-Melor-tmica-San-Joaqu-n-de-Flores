@@ -187,3 +187,40 @@ Mensaje:%20${values[4]}`;
   // Gallery: no modifications here; images use <img> with object-fit: cover managed by CSS.
 
 });
+const popup = document.getElementById("socialPopup");
+
+function mostrarPopup(){
+
+    const tamaño = 90;
+
+    const margen = 20;
+
+    const navbar = 90;
+
+    const x = Math.random() * (window.innerWidth - tamaño - margen);
+
+    const y = navbar + Math.random() * (window.innerHeight - tamaño - navbar - margen);
+
+    popup.style.left = x + "px";
+    popup.style.top = y + "px";
+
+    popup.style.display = "block";
+    popup.style.opacity = "1";
+
+    setTimeout(() => {
+
+        popup.style.opacity = "0";
+
+        setTimeout(() => {
+
+            popup.style.display = "none";
+
+        },500);
+
+    },20000);
+
+}
+
+mostrarPopup();
+
+setInterval(mostrarPopup,40000);

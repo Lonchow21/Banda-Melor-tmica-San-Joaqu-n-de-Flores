@@ -51,11 +51,80 @@ body{font-family:'Poppins',sans-serif;background:var(--verde);color:var(--blanco
 .historia-box p{opacity:0;transform:translateY(30px)}
 .historia-box p.show{opacity:1;transform:translateY(0);transition:opacity 1s,transform 1s}
 
-/* ---------- Gallery ---------- */
-#fotos{background:linear-gradient(135deg,rgba(33,37,41,.95),rgba(20,22,25,.95))}
-.gallery-frame{border:2px solid var(--dorado);border-radius:12px;overflow:hidden}
-.gallery-frame img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;margin:auto}
-.carousel-control-prev-icon,.carousel-control-next-icon{background-color:rgba(170,140,29,.8);border-radius:50%;padding:10px}
+/* ================= GALERÍA ================= */
+
+#fotos{
+    background:linear-gradient(135deg,#212529,#16181b);
+}
+
+.gallery-frame{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:320px;
+    padding:12px;
+
+    background:#111;
+    border:2px solid var(--dorado);
+    border-radius:15px;
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+.gallery-frame:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 25px rgba(170,140,29,.6);
+}
+
+.gallery-frame img{
+    max-width:100%;
+    max-height:100%;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    transition:.35s;
+}
+
+.gallery-frame:hover img{
+    transform:scale(1.05);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    background:rgba(170,140,29,.9);
+    border-radius:50%;
+    padding:12px;
+}
+
+@media(max-width:992px){
+
+    .gallery-frame{
+        height:280px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .gallery-frame{
+        height:240px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .gallery-frame{
+        height:200px;
+    }
+
+}
 
 /* ---------- Videos ---------- */
 #videos{background:rgba(6,27,3,.85)}
@@ -66,13 +135,6 @@ body{font-family:'Poppins',sans-serif;background:var(--verde);color:var(--blanco
 .video-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(170,140,29,.8);border:none;color:#fff;font-size:2rem;padding:.4rem 1rem;border-radius:50%;cursor:pointer;z-index:2}
 .video-nav:hover{background:rgba(170,140,29,1)}
 
-/* ---------- Eventos / Cards / Modals ---------- */
-.event-card{position:relative;border:1px solid var(--dorado);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.05);transition:transform .3s,box-shadow .3s}
-.event-card:hover{transform:translateY(-10px);box-shadow:0 0 20px rgba(170,140,29,.8)}
-.event-date{position:absolute;top:0;left:0;background:var(--dorado);color:var(--verde);font-weight:700;padding:.5rem 1rem;border-bottom-right-radius:12px}
-.event-card h5{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--dorado);text-shadow:0 0 10px rgba(170,140,29,.4)}
-.modal-content{background:rgba(6,27,3,.95);border:1px solid var(--dorado);border-radius:12px}
-.modal-header{border-bottom:1px solid var(--dorado)}
 
 /* ---------- Inputs / Forms ---------- */
 .glass-card{background:rgba(255,255,255,.05);border:1px solid var(--dorado);backdrop-filter:blur(6px)}
@@ -92,176 +154,6 @@ footer{background:rgba(0,0,0,.95);color:var(--blanco);font-size:.9rem;letter-spa
 @media(max-width:768px){.gallery-frame img{height:220px}.section-title{font-size:1.8rem}.video-item{height:45vh}}
 @media(max-width:576px){.gallery-frame img{height:180px}}
 
-/* End of cleaned stylesheet */
-
-/* ================= EVENTOS ================= */
-#eventos {
-  background: linear-gradient(
-    rgba(6, 27, 3, 0.85),
-    rgba(6, 27, 3, 0.85)
-  ), url('../img/eventos-bg.jpg') center/cover fixed;
-  backdrop-filter: blur(8px);
-}
-
-.event-card {
-  position: relative;
-  border: 1px solid var(--dorado);
-  border-radius: 12px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.event-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 20px rgba(170, 140, 29, 0.8);
-}
-
-.event-date {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: var(--dorado);
-  color: var(--verde);
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-bottom-right-radius: 12px;
-  font-size: 1.1rem;
-}
-
-.event-card h5 {
-  font-family: 'Cinzel', serif;
-  font-size: 1.2rem;
-  text-shadow: 0 0 10px rgba(170, 140, 29, 0.4);
-}
-
-.event-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #ddd;
-}
-
-.event-card i {
-  color: var(--dorado);
-  margin-right: 5px;
-}
-
-@media (max-width: 768px) {
-  .event-card h5 {
-    font-size: 1rem;
-  }
-  .event-date {
-    font-size: 0.9rem;
-  }
-}
-
-/* ================= MODALES ================= */
-.modal-content {
-  background: rgba(6, 27, 3, 0.95);
-  border: 1px solid var(--dorado);
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(170, 140, 29, 0.5);
-}
-
-.modal-header {
-  border-bottom: 1px solid var(--dorado);
-}
-
-.modal-body p {
-  font-size: 1rem;
-}
-
-.border-gold {
-  border-bottom: 1px solid var(--dorado);
-}
-
-.btn-close-white {
-  filter: invert(1);
-}
-
-.modal .btn-gold {
-  background: var(--dorado);
-  color: var(--verde);
-  font-weight: bold;
-}
-
-.modal .btn-gold:hover {
-  background: #d4b04a;
-}
-
-/* ==== GALERÍA ==== */
-.img-container {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  background: rgba(6, 27, 3, 0.4);
-  border: 2px solid #aa8c1d;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.img-container img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Mantener tamaño fijo en la galería y evitar que las imágenes estiren la página */
-#fotos .img-container,
-.gallery-frame {
-  height: 300px; /* altura consistente; responsive abajo */
-  overflow: hidden;
-}
-
-.gallery-frame img,
-#fotos .img-container img,
-.carousel-item img {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  margin: auto;
-}
-
-/* Asegurar que el contenedor centre las imágenes */
-.img-container { position: relative; overflow: hidden; }
-
-/* (Gallery uses <img> with object-fit: cover so no background-image conversion) */
-
-.carousel-item .row { align-items: stretch; }
-.img-container img:hover {
-  transform: translate(-50%, -50%) scale(1.05);
-  box-shadow: 0 0 20px rgba(170, 140, 29, 0.8);
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgba(170, 140, 29, 0.8);
-  border-radius: 50%;
-  padding: 10px;
-}
-
-@media (max-width: 992px) {
-  .img-container { height: 280px; }
-}
-@media (max-width: 768px) {
-  .img-container { height: 230px; }
-}
-@media (max-width: 576px) {
-  .img-container { height: 180px; }
-}
 
 /* ===== Menú hamburguesa opaco en móviles (legibilidad) ===== */
 @media (max-width: 992px) {
@@ -761,6 +653,18 @@ section:not(:last-of-type)::after {
 .social-link i { font-size: 1.6rem; color: var(--blanco); }
 
 .social-link:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 10px 30px rgba(0,0,0,0.45); }
+/* Gmail */
+.social-link.gmail{
+    background: linear-gradient(135deg,#EA4335,#C5221F);
+    color:#fff;
+}
+
+.social-link.gmail:hover{
+    background: linear-gradient(135deg,#FF5A4E,#EA4335);
+    color:#fff;
+    transform: translateY(-6px) scale(1.1);
+    box-shadow:0 0 20px rgba(234,67,53,.6);
+}
 
 /* Brand colors */
 .social-link.facebook { background: #1877F2; }
@@ -809,5 +713,149 @@ section:not(:last-of-type)::after {
   .scroll-top { right: 12px; bottom: 12px; width:42px; height:42px; }
 }
 
-/* Keep decorations subtle on print */
-@media print { .hero-title {-webkit-text-fill-color: #000; background:none; } .scroll-top { display:none; } }
+.donacion-card {
+  max-width: 400px;
+  background-image: url('../img/Galeria/Sinpe.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.donacion-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.donacion-card h4,
+.donacion-card p {
+  position: relative;
+  z-index: 1;
+}
+/* ===== SINPE ===== */
+.donacion-card {
+    max-width: 420px;
+    background-image: url('../img/Galeria/Sinpe.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #aa8c1d;
+    box-shadow: 0 0 20px rgba(170,140,29,.4);
+}
+
+.donacion-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+}
+
+.donacion-card h4,
+.sinpe-numero {
+    position: relative;
+    z-index: 2;
+}
+
+/* Número grande */
+.sinpe-numero{
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 28px;
+    font-size:2.3rem;
+    font-weight:800;
+    letter-spacing:3px;
+    color:#fff;
+    background:rgba(170,140,29,.95);
+    border-radius:12px;
+    border:2px solid #ffd700;
+    text-shadow:0 0 10px rgba(255,255,255,.8);
+    box-shadow:0 0 20px rgba(255,215,0,.6);
+    transition:.3s;
+}
+
+.sinpe-numero:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 35px rgba(255,215,0,.9);
+}
+
+@media(max-width:768px){
+    .sinpe-numero{
+        font-size:1.8rem;
+        letter-spacing:2px;
+        padding:10px 20px;
+    }
+}
+/* ================= BOTÓN REDES FLOTANTE ================= */
+
+#socialPopup{
+
+    position:fixed;
+
+    width:90px;
+    height:90px;
+
+    z-index:9999;
+
+    display:none;
+
+    cursor:pointer;
+
+    transition:
+        opacity .5s,
+        transform .5s;
+
+    animation: pulse 1.8s infinite;
+
+}
+
+#socialPopup img{
+
+    width:100%;
+    height:100%;
+    border-radius:50%;
+
+    object-fit:cover;
+
+    box-shadow:0 0 20px rgba(255,215,0,.6);
+
+}
+
+#socialPopup:hover{
+
+    transform:scale(1.15);
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+@media(max-width:768px){
+
+#socialPopup{
+
+width:75px;
+height:75px;
+
+}
+
+}
